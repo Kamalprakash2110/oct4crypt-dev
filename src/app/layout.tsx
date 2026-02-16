@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { AuthProvider } from '@/hooks/useFirebaseAuth';
+import AuthWrapper from '@/components/auth/AuthWrapper';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from 'react-hot-toast';
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-black text-white min-h-screen`}>
-        <AuthProvider>
+        <AuthWrapper>
           <div className="relative min-h-screen">
             {/* Background Effects */}
             <div className="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
@@ -79,7 +79,7 @@ export default function RootLayout({
               },
             }}
           />
-        </AuthProvider>
+        </AuthWrapper>
       </body>
     </html>
   );
